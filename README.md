@@ -13,7 +13,7 @@ Step 2: Provided node is installed, install the npm packages
 cd puppeteer-javascript
 npm install
 ```
-#note: this also installs the current version of chromium.
+note: this also installs the current version of chromium.
 
 Step 3: To run the test run the following command
 ```javascript
