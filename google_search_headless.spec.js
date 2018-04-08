@@ -5,7 +5,10 @@ let browser
 let page
 
 before(async () => {
-    browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+    browser = await puppeteer.launch({
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+      slowMo: 80,
+    });
     page = await browser.newPage()
 })
 
@@ -17,7 +20,7 @@ describe('Check Google Homepage in headless mode', () => {
     await page.waitForSelector("#resultStats");
     const mainTitleText = await page.$eval(".r a", el => el.textContent);
     assert.equal(mainTitleText,"GitHub - GoogleChrome/puppeteer: Headless Chrome Node API");
-    await page.screenshot({path: 'screenshot.png'})
+    await page.screenshot({path: 'screenshots/screenshot.png'})
   }).timeout(10000)
 })
 
