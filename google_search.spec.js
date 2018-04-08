@@ -7,7 +7,7 @@ let page
 before(async () => {
     browser = await puppeteer.launch({
       headless: false,
-      slowMo: 10,
+      slowMo: 80,
     });
     page = await browser.newPage()
 })
