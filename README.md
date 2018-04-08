@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/itsrunning/puppeteer-javascript.svg?branch=master)](https://travis-ci.org/itsrunning/puppeteer-javascript)
 # puppeteer-javascript
 
 Puppeteer is a Node library which provides a high-level API to control Chromium or Chrome over the DevTools Protocol.
