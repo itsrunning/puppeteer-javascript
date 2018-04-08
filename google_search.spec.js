@@ -6,6 +6,7 @@ let page
 
 before(async () => {
     browser = await puppeteer.launch({
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
       headless: false,
       slowMo: 80,
     });
