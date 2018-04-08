@@ -15,9 +15,11 @@ before(async () => {
 describe('Check Google Homepage in headless mode', () => {
   it('has title "Google"', async () => {
     await page.goto('https://google.com', { waitUntil: 'networkidle0' })
+    await page.tracing.start({path: 'trace.json'})
     await page.type("input[name=q]", "puppeteer github");
     await page.click("input[name=btnK]");
     await page.waitForSelector("#resultStats");
+    await page.tracing.stop();
     const mainTitleText = await page.$eval(".r a", el => el.textContent);
     assert.equal(mainTitleText,"GitHub - GoogleChrome/puppeteer: Headless Chrome Node API");
     await page.screenshot({path: 'screenshot.png'})
