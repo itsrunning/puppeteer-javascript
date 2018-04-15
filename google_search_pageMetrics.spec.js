@@ -18,10 +18,12 @@ describe('Check Google Homepage in headless mode', () => {
     await page.type("input[name=q]", "puppeteer github");
     await page.click("input[name=btnK]");
     await page.waitForSelector("#resultStats");
+    const metrics = await page.metrics();
+    console.log(JSON.stringify(metrics))
     const mainTitleText = await page.$eval(".r a", el => el.textContent);
     assert.equal(mainTitleText,"GitHub - GoogleChrome/puppeteer: Headless Chrome Node API");
     await page.screenshot({path: 'screenshot.png'})
-  }).timeout(0000)
+  }).timeout(60000)
 })
 
 after(async () => {
